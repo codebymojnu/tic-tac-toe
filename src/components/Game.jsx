@@ -21,14 +21,13 @@ export default function Game() {
   const moves = history.map((squares, move) => {
     let description;
     if (move > 0) {
-      description = `go to the move ${move}`;
+      description = `চাল ${move} এ ফিরে যাও`;
     } else if (move === history.length - 1) {
       description = `start`;
     } else {
       description = `Restart`;
     }
 
-    console.log(move, history.length - 1);
     return (
       <button
         className="bg-gray-700 text-white mb-2 p-1 rounded-md"
@@ -52,10 +51,10 @@ export default function Game() {
   console.log(history, isX);
   return (
     <div className="flex justify-center p-4">
-      <div className="mr-10">
+      <div className="mr-16">
         <Board isX={isX} squares={currentSquares} handlePlay={handlePlay} />
       </div>
-      <div className="border border-gray-400 p-4">
+      <div className="grow h-14 m-1 border-gray-400 p-4 max-w-[300px]">
         <History moves={moves} />
       </div>
     </div>
